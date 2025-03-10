@@ -1,9 +1,13 @@
+#ifndef RB_TREE_H
+#define RB_TREE_H
+
 
 #include <memory>
 
 template <typename T1, typename T2>
 class RBTree {
 private:
+    // Class Variables and Data Structures
 
     bool RED = true;
     bool BLACK = false;
@@ -21,9 +25,18 @@ private:
 
     std::unique_ptr<Node> root;
 
+
+    private:
+        bool is_red(const std::unique_ptr<Node>& x) {
+            if (x == nullptr) return false;
+            return x->color == RED;
+        }
 public:
 
     RBTree() {}
+        ~RBTree() {}
 
 
-}
+};
+
+#endif // RB_TREE_H
