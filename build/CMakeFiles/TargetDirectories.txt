@@ -1,3 +1,0 @@
-/home/albert/C/cpp/RBTree/build/CMakeFiles/rbtree.dir
-/home/albert/C/cpp/RBTree/build/CMakeFiles/edit_cache.dir
-/home/albert/C/cpp/RBTree/build/CMakeFiles/rebuild_cache.dir
