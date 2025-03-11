@@ -6,6 +6,7 @@
 #include <iostream>
 #include <cassert>
 
+namespace bear {
 
 template <typename T1, typename T2>
 class RBTree {
@@ -97,7 +98,7 @@ public:
     RBTree() = default;
     ~RBTree() = default;
 
-    void push(T1 add_key, T2 add_value) {
+    void insert(T1 add_key, T2 add_value) {
        if (root == nullptr) {
            root = std::make_unique<Node>(add_key, add_value, RED, 1);
        } else {
@@ -111,4 +112,7 @@ public:
 
 
 };
+
+}
+
 #endif // RB_TREE_H

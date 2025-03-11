@@ -1,9 +1,18 @@
 #include "rbtree.h"
+#include "list.h"
 
 int main() {
-    auto rbtree = RBTree<std::string,int>();
-    rbtree.push(std::string("Hello"),10);
-    rbtree.push(std::string("World"),20);
+    auto rbtree = bear::RBTree<std::string,int>();
+    rbtree.insert(std::string("Hello"),10);
+    rbtree.insert(std::string("World"),20);
     rbtree.print_nodes();
+   std::cout << "\n\n";
+    auto lst = bear::list<int>();
+    lst.push_front(45);
+    lst.push_front(23);
+    lst.push_back(64);
+    lst.pop_back();
+    lst.push_back(98);
+    lst.print_nodes();
     return 0;
 }
