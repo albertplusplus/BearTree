@@ -25,7 +25,7 @@ namespace bear {
 
     public:
     list() : head{nullptr}, tail{nullptr}, _size{0} {}
-        ~list() {}
+    ~list() {}
 
         void push_front(T _item) {
             if (empty()) {
