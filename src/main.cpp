@@ -13,6 +13,8 @@ int main() {
     lst.push_back(64);
     lst.pop_back();
     lst.push_back(98);
-    lst.print_nodes();
+    for (auto nodes : lst) {
+        std::cout << nodes.item << "  ";
+    }
     return 0;
 }

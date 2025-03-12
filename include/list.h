@@ -3,14 +3,13 @@
 #include <memory>
 #include <iostream>
 #include <stdexcept>
-
+#include <iterator>
 
 namespace bear {
 
     template <typename T>
     class list {
     private:
-
         struct Node {
             T item;
             std::shared_ptr<Node> prev, next;
@@ -123,6 +122,41 @@ namespace bear {
 
         size_t size() { return _size; }
 
+        struct iterator {
+            using iterator_category = std::forward_iterator_tag;
+            using value_type = T;
+            using pointer = T*;
+            using reference = T&;
+            using difference_type = std::ptrdiff_t;
+
+            iterator(Node* ptr) : _node{ptr} {}
+            reference operator*() const {
+                return _node->item;
+            }
+            pointer operator->() {
+                return *(_node->item);
+            }
+            iterator& operator++() {
+                _node = _node->next.get();
+                return *this;
+            }
+            iterator operator++(int) {
+                iterator tmp = *this;
+                _node = _node->next.get();
+                return tmp;
+            }
+            bool operator==(const iterator& other) const {
+                return _node == other._node;
+            }
+
+            bool operator!=(const iterator& other) const {
+                return _node != other._node;
+            }
+            Node* _node;
+        };
+
+        iterator begin() { return iterator(head.get()); }
+        iterator end()   { return iterator(nullptr); }
     private:
 
         T update_min() {
@@ -144,6 +178,8 @@ namespace bear {
                 curr = curr->next.get();
             }
         }
+
+
     };
 }
 
