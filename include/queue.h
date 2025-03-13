@@ -9,6 +9,7 @@ namespace bear {
     class queue {
     private:
         list<T> _list;
+    public:
         queue() : _list{} {}
         ~queue() {}
 
@@ -27,6 +28,21 @@ namespace bear {
         bool empty() const {
             return _list.empty();
         }
+
+        int size() {
+            return _list.size();
+        }
+
+        using iterator = typename list<T>::iterator;
+
+        iterator begin() {
+            return _list.begin();
+        }
+
+        iterator end() {
+            return _list.begin();
+        }
+
     };
 }
 

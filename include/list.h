@@ -159,7 +159,7 @@ namespace bear {
         iterator end()   { return iterator(nullptr); }
     private:
 
-        T update_min() {
+        void update_min() {
             auto curr = head.get();
             while (curr != nullptr) {
                 if (curr->item < _min) {
@@ -169,7 +169,7 @@ namespace bear {
             }
         }
 
-        T update_max() {
+        void update_max() {
             auto curr = head.get();
             while (curr != nullptr) {
                 if (curr->item > _max) {

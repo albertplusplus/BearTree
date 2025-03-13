@@ -1,20 +1,16 @@
-#include "rbtree.h"
-#include "list.h"
+
+#include "queue.h"
+#include <iostream>
 
 int main() {
-    auto rbtree = bear::RBTree<std::string,int>();
-    rbtree.insert(std::string("Hello"),10);
-    rbtree.insert(std::string("World"),20);
-    rbtree.print_nodes();
-   std::cout << "\n\n";
-    auto lst = bear::list<int>();
-    lst.push_front(45);
-    lst.push_front(23);
-    lst.push_back(64);
-    lst.pop_back();
-    lst.push_back(98);
-    for (auto nodes : lst) {
-        std::cout << nodes.item << "  ";
+    auto Q = bear::queue<int>();
+    Q.enqueue(5);
+    Q.enqueue(10);
+    Q.enqueue(24);
+    for (auto q : Q) {
+        std::cout << q << " - ";
     }
+    std::cout << "\n";
+
     return 0;
 }
